@@ -90,17 +90,18 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="catalog:index">Все товары</a></li>
-                        <li><a class="dropdown-item text-white" href="catalog:index">Кухня</a></li>
-                        <li><a class="dropdown-item text-white" href="catalog:index">Спальня</a></li>
-                        <li><a class="dropdown-item text-white" href="catalog:index">Гостинная</a></li>
-                        <li><a class="dropdown-item text-white" href="catalog:index">Офис</a></li>
-                        <li><a class="dropdown-item text-white" href="catalog:index">Фурнитура</a></li>
-                        <li><a class="dropdown-item text-white" href="catalog:index">Декор</a></li>
+                        {% for category in  categories %}
+                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">{{category}}</a></li>
+                        {% endfor %}
+                        
+
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
                 <div>
+                    {% for category in  categories %}
+                            <li><a  class="dropdown-item text-white" href="{% url "catalog:index" %}">{{category}}</a></li>
+                        {% endfor %}
                     <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton"
                         aria-expanded="false">
                         <img class="mx-1" src="{% static "deps/icons/basket2-fill.svg" %}" alt="Catalog Icon" width="24"
