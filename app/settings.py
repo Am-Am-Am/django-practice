@@ -12,10 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import AUTH_USER_MODEL, INTERNAL_IPS
-
-# from django.conf.global_settings import STATIC_ROOT
-
+from django.http import HttpResponseNotFound
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i8qdk8&chf&foiv*$2+=v!rl%=uo4efx^03w8*2%!fhblrcu&$'
+SECRET_KEY = 'django-insecure-ld)8k$gfoow^#9-6mm@palg6l9d)&l!5ng#m2@=msxhq353g#2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,15 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    
-    'debug_toolbar',
+
+    "debug_toolbar",
 
     'main',
     'goods',
     'users',
     'carts',
     'orders',
-
 ]
 
 MIDDLEWARE = [
@@ -63,7 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -100,6 +97,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -139,21 +137,22 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'static'
     ]
 
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = BASE_DIR /'media'
-# STATIC_ROOT
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 INTERNAL_IPS = [
-    '127.0.0.1',
+    # ...
+    "127.0.0.1",
+    # ...
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
-LOGIN_URL = 'user/login/'
-
+LOGIN_URL = '/user/login/'
